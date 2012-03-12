@@ -4,7 +4,7 @@
 
 View [demo on my blog](http://www.hasown.com/TimeBrowser/). Since it may not be stable, please View the [Screenshot](http://github.com/kainliu/TimeBrowser/raw/master/design/preview.png) and [Prototype](http://github.com/kainliu/TimeBrowser/raw/master/design/prototype.png) to take a glance.
 
-Demo请点击[这里](http://www.hasown.com/TimeBrowser/)。请先看看截图(http://github.com/kainliu/TimeBrowser/raw/master/design/preview.png) 和 设计草图(http://github.com/kainliu/TimeBrowser/raw/master/design/prototype.png) ，第一印象还行不？
+Demo请点击[这里](http://www.hasown.com/TimeBrowser/)。请先看看[截图](http://github.com/kainliu/TimeBrowser/raw/master/design/preview.png) 和 [设计草图](http://github.com/kainliu/TimeBrowser/raw/master/design/prototype.png) ，第一印象还行不？
 
 ####Introduction 简介
 
