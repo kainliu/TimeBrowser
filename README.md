@@ -8,7 +8,7 @@ Demo请点击[这里](http://www.hasown.com/TimeBrowser/)。请先看看[截图]
 
 ####Introduction 简介
 
-TimeBrowser is a browsed-based multi-tab browser with a delicately designed user interface and some interesting features, aiming at providing a "cloud-surfing" demo.
+TimeBrowser is a browsed-based multi-tab browser with delicately designed user interface and attracting features, aiming at providing a "cloud-surfing" demo.
 时光浏览器一个基于浏览器的多标签页浏览器，它的用户界面和功能都是经过作者精心设计，力图为使用者模拟一个“云浏览”的浏览器环境。
 
 
