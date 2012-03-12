@@ -1,0 +1,279 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"   "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html>
+<head>
+	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+	<title> Time Browser - 时光 浏览器 </title>
+	<!-- Import css style sheets -->
+	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<link type="text/css" rel="stylesheet" href="css/jquery-ui-1.8.9.custom.css"/>
+	<link type="text/css" rel="stylesheet" href="plugin/tipsy/tipsy.css" />		
+	<!--[if IE]><link type="text/css" href="css/ie.css" rel="stylesheet" /><![endif]-->
+</head>
+<body>
+<!-- Global wrapper -->
+<div id="wrapper">
+
+<!-- Whole browser window -->
+<div id="window" class="shadow">	
+
+	<div id="h-line-1" class="h-line h-line-t"></div>
+
+	<!-- Tool container in the top -->
+	<div id="top-bar">
+
+		<!-- Provide text-menu/logo containter and drag handler -->
+		<div id="title-bar">
+
+			<!-- Logo on the left -->
+			<div id="logo-icon"><span>Logo</span></div>
+
+			<!-- Text-menu, by default hidden. When visiable in the browser-name position -->
+			<div id="text-menu">
+				<ul>
+					<li>文件<u>(F)</u></li>
+					<li>查看<u>(V)</u></li>
+					<li>收藏<u>(B)</u></li> 
+					<li>工具<u>(T)</u></li>
+					<li>帮助<u>(H)</u></li>
+				</ul>
+			</div>
+
+			<!-- Center in the title bar -->
+			<div id="browser-name"><span>时光浏览器</span></div>
+		</div>
+		<!-- title-bar ends-->
+
+		<!-- Provide navigation tools including buttons and input box -->
+		<div id="nav-bar">	
+
+			<!-- Users can input either website URLs or search keywords into uni-box -->
+			<div id="nav-uni" class="uni-more-normal">
+				
+				<!-- Input box -->	
+				<div id="uni-input">
+					<input id="uni-text" type="text" value="" baiduSug="2"/>
+				</div>
+
+				<!-- Submit button -->
+				<div id="uni-button"></div>
+
+			</div>
+			
+			<!-- Contains navigation buttons, on the left of uni-box by default-->
+			<div id="nav-buttons" class="nav-child">
+				<ul id="nav-buttons-ul">
+					<!-- The buttons -->
+					<li><div id="backward-button" class="button tipsy-enabled"><span>后退</span></div></li>
+					<li><div id="forward-button" class="button tipsy-enabled"><span>前进</span></div></li>
+					<li><div id="refresh-button" class="button tipsy-enabled"><span>刷新</span></div></li>	
+					<li><div id="recycler-button" class="button tipsy-enabled"><span>回收站</span></div></li>
+					<li><div id="option-button" class="button tipsy-enabled"><span>功能表</span></div></li>
+					<!--<li><div id="newtab-button" class="button tipsy-enabled"><span>新建</span></div></li>-->
+				</ul>	
+			</div>
+			
+			<!-- Contains apps, on the right of uni-box by default -->
+			<div id="nav-apps" class="nav-child">
+				<!-- Toggle the app list -->
+				<ul id="nav-apps-more">		
+					<li><div id="apps-button" class="button tipsy-enabled"><span>应用列表</span></div></li>	
+				</ul>	
+
+				<!-- Show the most frequent used apps, by default 4 apps and 16 apps/1 page when list opened -->
+				<ul id="nav-apps-list">
+					
+				</ul>	
+				
+			</div>
+			
+			
+		</div>
+		<!-- nav-bar ends-->
+		
+		<!-- By default on the right, shows Microsoft-like windows control buttons. -->
+		<div id="window-control">
+			<ul>
+				<!-- 3 buttons -->
+				<li><div id="window-min" class="button tipsy-enabled"><span>最小化</span></div></li>
+				<li>
+					<div id="window-max" class="button tipsy-enabled"><span>最大化</span></div>
+					<div id="window-normal" class="button tipsy-enabled"><span>还原</span></div>
+				</li>
+				<li><div id="window-close" class="button tipsy-enabled"><span>关闭程序</span></div></li>	
+			</ul>				
+		</div>
+		<!--window-control ends-->
+		
+		<!-- apps title -->
+		<div id="apps-title"><span>应用列表</span></div>	
+	</div>
+	<!-- top-bar ends-->
+	
+	<div id="h-line-2" class="h-line"></div>
+	
+
+	<!-- Provide multi-tab feature, support double-click and drag -->
+	<div id="tabs-bar">
+		<!-- tabs -->
+		<ul id="tabs-bar-ul">
+			
+		</ul>	
+	</div>
+	<!-- tabs-bar ends-->		
+	
+	
+	<div id="h-line-3" class="h-line h-line-b"></div>
+		
+	<!-- Contains website pages -->
+	<div id="content">
+		<div id="content-mask" class="mask loading"><span>遮罩层</span></div>
+		<div id="content-info" class="ui-corner-all">
+			<p>正在启动...</p>
+			<noscript>
+				<div class="ui-state-error ui-corner-all" style="padding: 0 .7em;"> 
+					<p>您的浏览器未开启了JavaScript</p>
+					<p><strong>请开启后重启浏览器</strong></p>
+				</div>
+			</noscript>			
+		</div>
+		<iframe id="content-1" class="current-content" src=""  frameborder="0"></iframe>
+	</div>
+	
+	<div id="bottom-bar">
+		<div id="status-bar"></div>
+	</div>
+
+</div>
+<!--window-->
+
+
+<!-- Option list -->
+<div id="option-list" class="list hidden">
+	<div class="list-inner">
+		<ul class="tree-0">
+			<li id="option-tab-new">新建页面<u>(T)</u></li>
+			<li>新建窗口<u>(N)</u></li>
+			<li class="h-line"></li>
+			
+			<li>保存...<u>(S)</u></li>
+			<li>查找...<u>(F)</u></li>
+			<li>打印...<u>(P)</u></li>
+			<li class="h-line"></li>
+			
+			<li>回收站<u>(H)</u></li>		
+			<li>历史记录<u>(H)</u></li>
+			<li>下载内容<u>(D)</u></li>
+			<li>应用列表<u>(B)</u></li>
+			<li class="h-line"></li>
+			
+			<li>选项<u>(O)</u></li>
+			<li>帮助<u>(E)</u></li>
+			<li>关于<u>(G)</u></li>
+			<li class="h-line"></li>
+			
+			<li>退出<u>(X)</u></li>
+		</ul>	
+	</div>
+</div>
+
+
+
+
+<div id="recycler-list" class="hidden list  recycler-empty">
+	<div class="list-inner">
+		<!--
+		<div class="list-description">
+			恢复关闭的页面
+		</div>		
+		<div class="h-line"></div>
+			
+		<div class="list-description">
+			恢复删除的应用
+		</div>		
+		<div class="h-line"></div>		
+		<ul id="recycler-app-list" class="tree-0">	
+		</ul>	
+		-->
+		<ul id="recycler-tab-list" class="tree-0">	
+		</ul>	
+	</div>
+</div>
+
+
+
+
+<div id="uni-text-history" class="hidden"></div>
+
+<div id="uni-text-sug" class="hidden"></div>
+
+<div id="uni-text-sug-control" class="hidden">
+	<div class="bar" id="uni-text-sug-bar">
+		<div class="h-line"></div>	
+		<ul>
+			<li class="config"><div class="ui-icon ui-icon-wrench"></div><div class="bar-text">设置</div></li>
+			<li class="prev"><div class="ui-icon ui-icon-circle-arrow-w"></div><div class="bar-text">上页</div></li>
+			<li class="next"><div class="ui-icon ui-icon-circle-arrow-e"></div><div class="bar-text">下页</div></li>
+			<li class="close"><div class="ui-icon ui-icon-circle-close"></div><div class="bar-text">关闭</div></li>	
+		</ul>
+	</div>
+</div>
+
+<div id="nav-apps-list-control" class="hidden">
+	<div class="bar" id="nav-apps-lists-bar">
+		<div class="h-line"></div>
+		<ul>
+			<li class="add"><div class="ui-icon ui-icon-circle-plus"></div><div class="bar-text">添加</div></li>	
+			<li class="prev"><div class="ui-icon ui-icon-circle-arrow-w"></div><div class="bar-text">上页</div></li>
+			<li class="next"><div class="ui-icon ui-icon-circle-arrow-e"></div><div class="bar-text">下页</div></li>
+			<li class="close"><div class="ui-icon ui-icon-circle-close"></div><div class="bar-text">关闭</div></li>
+		</ul>	
+	</div>
+</div>
+
+<!-- Tab in initial state -->
+<div id="tab-init" class="hidden">
+	<ul>
+		<!-- Contains a few buttons and read-only area -->
+		<li id="tab-0" class="tab">
+			<!-- Horizontal header and tailer, only tab in the first or last position of the array shows corner -->
+			<div class="tab-header"><span>左侧圆角</span></div>
+			<div class="tab-tailer"><span>右侧圆角</span></div>
+			<!-- Use column to sepetate tabs in the middle -->
+			<div class="tab-column"><span>栅栏</span></div>
+
+			<!-- Horizontal symmetric buttons -->
+			<div class="tab-button tab-more"><span>选项</span></div>
+			<div class="tab-button tab-close tipsy-enabled"><span>关闭此页</span></div>
+			
+			<!-- Loading progress -->
+			<div class="tab-mask mask tab-loading-progress"><span>读取进度</span></div>	
+			<!-- Tab title -->
+			<div class="tab-row tab-title">新页面</div>
+			<!-- Tab url -->
+			<div class="tab-row tab-url">页面地址</div>	
+		</li>	
+	</ul>
+</div>
+
+
+</div>
+<!--wrapper ends-->
+</body>	
+<!-- Import scripts -->
+<!-- LAB is a dynamic loading tool for js-->
+<script type="text/javascript" src="library/LAB.js"></script>
+<script type="text/javascript">
+$LAB
+.script("library/jquery-1.4.4.min.js")
+.wait()
+.script("plugin/jquery-ui/jquery-ui-1.8.9.custom.min.js")
+.script("plugin/easing/jquery.easing.1.3.js")
+.script("plugin/tipsy/jquery.tipsy.js")
+.script("plugin/hoverDelay/jquery.hoverDelay.js")
+.wait()
+.script("module/index.js")
+.script("module/validation.js")
+.script("module/nav-apps.js")
+.script("external/baidu-sug.js")
+</script>
+</html>
