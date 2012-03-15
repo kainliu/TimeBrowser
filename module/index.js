@@ -540,30 +540,30 @@ function tab_init(){
 	   	//case1
 	   	case 1:
  					
-					$(".tab").removeClass("current-tab")
-					
-					$(this).addClass("current-tab")
-					
-					//动态效果
-					$(this).find(".tab-url").stop()
-					.css({
-							"margin-top":"20px"
-						})
-					.animate({
-							"margin-top":"0"
-						},300)
-						
-					//处理头尾圆角
-					tabs_round(); 
-					//处理悬浮效果
-					tab_hover();
+        	$(".tab").removeClass("current-tab")
+        	
+        	$(this).addClass("current-tab")
+        	
+        	//动态效果
+        	$(this).find(".tab-url").stop()
+        	.css({
+    			"margin-top":"20px"
+    		})
+        	.animate({
+    			"margin-top":"0"
+    		},300)
+        		
+        	//处理头尾圆角
+        	tabs_round(); 
+        	//处理悬浮效果
+        	tab_hover();
 					
 	   	break;
 	   	
 	   	//case2
 	   	//鼠标中间点击关闭的页面不改变标签的激活
 	   	case 2:
-				$(this).find(".tab-close").click()
+            $(this).find(".tab-close").click()
 
 	  	break;	
 	  	  
@@ -644,16 +644,16 @@ function recycler_list_check(){
 //鼠标悬浮效果,只在非当前标签页上增加高亮效果
 function tab_hover(){
 	$(".tab").hover(
-		function(){
-				$(this).find(".tab-mask").stop().animate({"opacity":"0.15"},200)
+        function(){
+            $(this).find(".tab-mask").stop().animate({"opacity":"0.15"},200)
 		},
 		function(){
-				$(this).find(".tab-mask").stop().animate({"opacity":"0"},200)
+            $(this).find(".tab-mask").stop().animate({"opacity":"0"},200)
 		}
 	)
 	$(".current-tab").hover(
 		function(){
-				$(this).find(".tab-mask").stop().css({"opacity":"0"},200)
+			 $(this).find(".tab-mask").stop().css({"opacity":"0"},200)
 		},
 		function(){}		
 	)

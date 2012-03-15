@@ -38,13 +38,3 @@ Then try to open [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/) 
 
 The efforts spent on the compatibility of various browsers including IE6 drivers me crazy, but I try my best to keep TB performs good. I have not tested it for Safari and Opera thoroughly. Any questions or bug reports are welcomed.
 IE6下也能工作良好，不过兼容性工作把我累跪下了。我还没来得及完整测试过Safari和Opera。如果有任何问题，欢迎告诉我。
-
-####TASK 任务
-
-* Next/Prev page in search box
-* Next/Prev page in app box
-* MVC structure of multi-tab 
-
-####TODO 计划
-
-* Add "readability" functionality. A lot webpages have serious problems in typeset text. It will cut off the other elements and leave the import content.

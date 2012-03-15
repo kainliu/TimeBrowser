@@ -26,7 +26,7 @@ body,input,textarea{
 }
 
 .loading{
-	background-image:url(../img/loader.gif) !important;
+	background-image:url(../img/loading.gif) !important;
 	background-repeat:no-repeat !important;
 	background-position:50% 50% !important;
 }
@@ -553,14 +553,14 @@ span{
 }		
 
 #backward-button{
-	background:url(../img/icon-24.png) no-repeat 0px 0px;
+	background:url(../img/nav-bar-button.png) no-repeat 0px 0px;
 }
 #nav-bar .mousedown #backward-button{
 	background-position:0px -24px !important;
 }		
 	
 #forward-button{
-	background:url(../img/icon-24.png) no-repeat -24px 0px;	
+	background:url(../img/nav-bar-button.png) no-repeat -24px 0px;	
 }
 #nav-bar .mousedown #forward-button{
 	background-position:-24px -24px !important;
@@ -568,21 +568,21 @@ span{
 
 
 #refresh-button{
-	background:url(../img/icon-24.png) no-repeat -48px 0px;	
+	background:url(../img/nav-bar-button.png) no-repeat -48px 0px;	
 }
 #nav-bar .mousedown #refresh-button{
 	background-position:-48px -24px !important;
 }		
 
 #recycler-button{
-	background:url(../img/icon-24.png) no-repeat -72px 0px;		
+	background:url(../img/nav-bar-button.png) no-repeat -72px 0px;		
 }
 #nav-bar .mousedown #recycler-button{
 	background-position:-72px -24px !important;
 }		
 
 #apps-button{
-	background:url(../img/icon-24.png) no-repeat -96px 0px;		
+	background:url(../img/nav-bar-button.png) no-repeat -96px 0px;		
 }
 #nav-bar .mousedown #apps-button{
 	background-position:-96px -24px !important;
@@ -590,7 +590,7 @@ span{
 	
 
 #option-button{
-	background:url(../img/icon-24.png) no-repeat -120px 0px;	
+	background:url(../img/nav-bar-button.png) no-repeat -120px 0px;	
 }	
 #nav-bar .mousedown #option-button{
 	background-position:-120px -24px !important;
@@ -598,12 +598,11 @@ span{
 
 
 #newtab-button{
-	background:url(../img/icon-24.png) no-repeat -144px 0px;	
+	background:url(../img/nav-bar-button.png) no-repeat -144px 0px;	
 }	
 #nav-bar .mousedown #newtab-button{
 	background-position:-144px -24px !important;
 }	
-
 
 
 #nav-uni{
