@@ -1,4 +1,4 @@
 ###20120315
 
-* 右侧应用在拖动后，无法点击，跳转链接。
-* 只有一个网页时，没有显示TABS栏。
+* Apps cant be clicked after dragged
+* Tabs bar disappears when one tab left
