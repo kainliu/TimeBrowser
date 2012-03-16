@@ -278,9 +278,14 @@ $LAB
 .script("plugin/tipsy/jquery.tipsy.js")
 .script("plugin/hoverDelay/jquery.hoverDelay.js")
 .wait()
-.script("module/index.js")
+.script("module/index.js")//XXX:remove this line when modularity job done
 .script("module/validation.js")
-.script("module/nav-apps.js")
+.script("module/init.js") 
+.script("module/title-bar.js")
+.script("module/window-control.js")
+.script("module/nav-buttons.js")
+.script("module/nav-uni.js")  
+.script("module/nav-apps.js")   
 .wait()
 .script("external/baidu/baidu-sug.js")
 </script>
