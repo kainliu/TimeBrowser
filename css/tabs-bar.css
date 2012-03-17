@@ -1,0 +1,178 @@
+
+/*tabs-bar*/
+#tabs-bar{
+	background:transparent url(../img/tabs-bar.png) repeat-x;
+	height:42px;
+	width:100%;
+	overflow:hidden;
+}
+
+#tabs-bar ul{	
+	float:left;
+}
+#tabs-bar li{
+	width:8px;
+	height:42px;
+	float:left;
+	display:inline;
+	position:relative;
+	overflow:hidden;
+}
+#tabs-bar li.current-tab{
+	width:298px;
+}
+	
+
+
+.bar{
+	width: 100%;
+	background:url(../img/tabs-bar.png) repeat-x center bottom;
+}
+.bar ul{
+}
+
+.bar ul li{
+	font-size:12px;
+	float:left;
+	text-align:center;
+	width:25%;	
+	height:32px !important;
+	padding:5px 0;
+	line-height:16px;
+	cursor:pointer;
+	position:relative;
+}
+
+.bar ul .active{
+	background:transparent url(../img/tab-active.png) repeat-x center !important;
+}
+
+.bar ul li .ui-icon{
+	margin:0 auto;
+	padding:0 !important;
+}
+
+
+
+.tab-header{
+	display:none;
+	position:absolute;
+	left:0;
+	top:0;
+	z-index:2;
+	width:6px;
+	height:42px;
+	background:url(../img/tab-header.png) no-repeat top right;
+}
+.tab-header-active{
+	background-image:url(../img/tab-header-active.png) !important;
+}
+.tab-tailer{	
+	display:none;
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:2;
+	width:6px;
+	height:42px;
+	background:url(../img/tab-tailer.png) no-repeat top left;
+}
+.tab-tailer-active{
+	background-image:url(../img/tab-tailer-active.png) !important;
+}
+
+
+#tabs-bar .tab{
+	background:url(../img/tab.png) repeat-x top left;
+	width:200px;
+}
+
+#tabs-bar .current-tab{
+	background:url(../img/tab-active.png) repeat-x top left !important;
+}
+
+#tabs-bar .tab .tab-column{
+	background-color:#4D627F;
+	height:36px;
+	width:1px;
+	z-index:1;
+	display:block;
+	position:absolute;
+	top:3px;
+	right:0;
+}
+
+#tabs-bar .tab .tab-button{
+	height:15px;
+	width:15px;
+	position:absolute;
+	z-index:4;
+	top:14px;
+	background-color:transparent;
+}
+
+
+
+#tabs-bar .tab .tab-more{
+	background:url(../img/tab-more.png) no-repeat top left;
+	left:4px;
+	display:none;
+	visibility:hidden;
+}
+
+.tab-close{
+	background:url(../img/tab-close.png) no-repeat top left;
+	right:4px;
+	display:none;
+}
+
+#tabs-bar .current-tab .tab-button{
+	display:inline !important;
+}
+
+#tabs-bar .tab .tab-row{
+	background-color:transparent;
+	text-align:center;
+	overflow:hidden;
+	color:#fff;
+	margin:0 auto;
+	font-size:12px;	
+	height:16px;
+	line-height:16px;
+	white-space:nowrap; overflow:hidden; text-overflow:ellipsis;
+}
+
+#tabs-bar .tab .tab-title{
+	cursor:default;
+	padding-top:13px !important;
+}
+
+#tabs-bar .tab .tab-title em{
+	font-style:normal
+}
+
+#tabs-bar .tab .tab-url{
+	color:#aaa;
+	display:none;
+}
+
+#tabs-bar .current-tab .tab-title{
+	padding-top:5px !important;
+}
+
+#tabs-bar .current-tab .tab-url{
+	display:block !important;
+}
+
+#tabs-bar .tab .tab-mask{
+	position:absolute;
+	top:3px;
+	left:0;
+	width:100%;
+	height:36px;
+	z-index:3;
+	background:#eee;
+	overflow:hidden;
+	d/isplay:none;
+}		
+

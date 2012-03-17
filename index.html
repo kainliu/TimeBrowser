@@ -4,10 +4,13 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
 	<title>TimeBrowser - 时光浏览器</title>
 	<!-- Import css style sheets -->
-	<link type="text/css" rel="stylesheet" href="css/default.css" />
+	<link type="text/css" rel="stylesheet" href="css/window.css" />
+	<link type="text/css" rel="stylesheet" href="css/top-bar.css" />
+	<link type="text/css" rel="stylesheet" href="css/tabs-bar.css" />
+	<!--[if IE]><link type="text/css" href="css/ie.css" rel="stylesheet" /><![endif]-->
 	<link type="text/css" rel="stylesheet" href="plugin/jquery-ui/jquery-ui-1.8.9.custom.css"/>
 	<link type="text/css" rel="stylesheet" href="plugin/tipsy/tipsy.css" />		
-	<!--[if IE]><link type="text/css" href="css/ie.css" rel="stylesheet" /><![endif]-->
+	<link type="text/css" rel="stylesheet" href="external/baidu/baidu-sug.css" />
 </head>
 <body>
 <!-- Global wrapper -->
@@ -287,6 +290,6 @@ $LAB
 .script("module/nav-uni.js")  
 .script("module/nav-apps.js")   
 .wait()
-.script("external/baidu/baidu-sug.js")
+.script("external/baidu/baidu-sug.js")//Baidu search suggestion
 </script>
 </html>

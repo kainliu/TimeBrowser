@@ -1,0 +1,402 @@
+
+#top-bar{
+	position:relative;
+}
+
+#title-bar{
+	display:block;
+	width:100%;
+	height:24px;
+	overflow:hidden;
+	cursor:move;
+	clear:both;
+	position:relative;
+	background:url(../img/top-bar.png) repeat top left;	
+}
+
+#logo-icon{
+	display:none;
+	width:24px;
+	height:24px;
+	background:#000;
+	disp/lay:block;
+	float:left;
+}
+
+
+#browser-name{
+	position:absolute;
+	top:0;
+	left:50%;
+	z-index:1;
+	width:72px;
+	height:24px;
+	overflow:hidden;
+	background:transparent url(../img/top-bar.png) no-repeat -96px -24px;
+	margin-left:-36px;
+}
+
+#text-menu{
+	display:none;	
+	position:absolute;
+	top:0;
+	left:0;
+	
+}
+#text-menu ul{
+	cursor:default;
+	height:24px;
+	width:245px;
+}
+#text-menu ul li{
+	float:left;
+	padding:4px;
+	line-height:16px;
+}
+
+
+#browser-name{
+
+}
+
+#nav-bar{
+	o/verflow:hidden;
+	position:relative;
+	display:block;
+	width:100%;
+	height:40px;
+	t/ext-align:center;
+}
+	
+#nav-bar ul{
+}
+
+#nav-bar li{
+	float:left;
+	display:inline;
+}
+#nav-bar li div{
+}		
+
+
+	
+#nav-uni{
+	position:absolute;
+	top:0px;
+	left:50%;
+	z-index:2;
+	margin-left:-155px;
+	width:310px;
+	text-align:left;
+}		
+	
+#nav-buttons{
+	width:320px;
+	position:absolute;
+	top:0px;
+	left:0px;
+	z-index:1;
+	height:37px;
+	overflow:hidden;	
+	background:#B2B2B2;
+}
+
+#nav-apps{
+	width:320px;
+	position:absolute;
+	top:0;
+	right:0;
+	z-index:1;
+	height:37px;
+	overflow:hidden;	
+	background:#B2B2B2;	
+}
+
+
+/*应用列表*/
+#apps-title{
+	position:absolute;
+	right:0;
+	top:0;
+	z-index:2;
+	width:72px;
+	height:24px;
+	overflow:hidden;
+	display:none;
+	background:url(../img/top-bar.png) no-repeat -168px -24px !important;
+}
+.max #apps-title{
+	background-position:-168px -48px !important;
+}
+
+
+/**/
+	
+#nav-bar .mouseover{
+	background:url(../img/nav-bar-bg.png) no-repeat center top !important;
+}	
+#nav-bar .mousedown{
+	background:url(../img/nav-bar-bg.png) no-repeat center -37px !important;
+}		
+
+#nav-bar li{
+	display:inline;
+	wid/th:37px;
+	width:20%;
+	height:37px;
+	border:none;
+	overflow:hidden;
+}	
+	
+#nav-bar li div{	
+	margin:7px auto;
+	display:block;
+	width:24px;
+	height:24px;
+	border:none;
+	ove/rflow:hidden;
+}
+
+
+#nav-bar li img{
+	width:24px;
+	height:24px;
+}		
+
+#backward-button{
+	background:url(../img/nav-bar-button.png) no-repeat 0px 0px;
+}
+#nav-bar .mousedown #backward-button{
+	background-position:0px -24px !important;
+}		
+	
+#forward-button{
+	background:url(../img/nav-bar-button.png) no-repeat -24px 0px;	
+}
+#nav-bar .mousedown #forward-button{
+	background-position:-24px -24px !important;
+}		
+
+
+#refresh-button{
+	background:url(../img/nav-bar-button.png) no-repeat -48px 0px;	
+}
+#nav-bar .mousedown #refresh-button{
+	background-position:-48px -24px !important;
+}		
+
+#recycler-button{
+	background:url(../img/nav-bar-button.png) no-repeat -72px 0px;		
+}
+#nav-bar .mousedown #recycler-button{
+	background-position:-72px -24px !important;
+}		
+
+#apps-button{
+	background:url(../img/nav-bar-button.png) no-repeat -96px 0px;		
+}
+#nav-bar .mousedown #apps-button{
+	background-position:-96px -24px !important;
+}		
+	
+
+#option-button{
+	background:url(../img/nav-bar-button.png) no-repeat -120px 0px;	
+}	
+#nav-bar .mousedown #option-button{
+	background-position:-120px -24px !important;
+}	
+
+
+#newtab-button{
+	background:url(../img/nav-bar-button.png) no-repeat -144px 0px;	
+}	
+#nav-bar .mousedown #newtab-button{
+	background-position:-144px -24px !important;
+}	
+
+
+#nav-uni{
+	border:none;
+	height:40px;
+	width:310px;
+	top:0;
+	left:50%;
+	margin-left:-155px;
+	overflow:hidden;
+}
+
+.uni-more-normal{
+	background:url(../img/nav-uni.png) no-repeat 0px 0px;
+}
+
+.uni-more-mouseover{
+	background:url(../img/nav-uni.png) no-repeat 0px -50px !important;
+}
+.uni-more-mousedown{
+	background:url(../img/nav-uni.png) no-repeat 0px -100px !important;
+}
+
+.uni-sub-normal{
+	background:url(../img/nav-uni.png) no-repeat 0px -150px !important;
+}
+.uni-sub-mouseover{
+	background:url(../img/nav-uni.png) no-repeat 0px -200px !important;
+}
+.uni-sub-mousedown{
+	background:url(../img/nav-uni.png) no-repeat 0px -250px !important;
+}
+
+
+#nav-uni #uni-input{
+	display:inline;
+	float:left;
+	width:274px;
+	height:30px;
+	padding:3px 0 7px;
+}
+
+#nav-uni #uni-text{
+	outline: 0px;
+	width:260px;
+	padding:4px 7px 6px 7px;
+	line-height:20px;
+	height:20px;
+	border-width:0;
+	font-size:14px;
+	background:transparent;
+	color:#000;
+	bac/kground:#fff;
+	display:none;
+	
+}		
+
+#nav-uni #uni-sub{
+	display:none;
+}
+
+#nav-uni #uni-button{
+	float:left;
+	width:36px;
+	height:40px;
+	background:transparent;
+}	
+
+
+/*回收站列表*/
+#recycler-list{
+	width:290px;
+	height:320px;
+}
+
+#recycler-tab-list{
+	width:290px;
+	height:321px;	
+	margin-top:-1px;	
+}
+
+/*.recycler-empty{
+		background:url(../img/recycler-empty.png) no-repeat right bottom;		
+}
+.recycler-full{
+		background:url(../img/recycler-full.png) no-repeat right bottom;		
+}*/
+
+#recycler-tab-list li{
+	border-top:1px solid #CDD5DF;
+	border-bottom:1px solid  #5C6368;
+	width:270px !important;
+	margin:0 auto;
+}
+#recycler-tab-list li div{
+	display:none !important;
+}
+
+#recycler-tab-list li .tab-title{
+	display:block !important;
+}
+
+
+
+#recycler-latest{
+	color:#FFF !important;		
+	background:transparent url(../img/tab-active.png) repeat-x center center !important;	
+}
+
+
+#nav-apps ul{
+	float:left;
+	display:inline;
+}
+
+#nav-apps-more{	
+	width:20%;
+}
+
+#nav-apps-more li{	
+	width:100% !important;
+} 
+
+#nav-apps-list{
+	width:80%;
+}
+#nav-apps-list li{
+	width:25%;
+	overflow:hidden;
+	
+}
+#nav-apps-list li div{
+	cursor:pointer;
+}
+
+
+/*窗体控制按钮*/
+#window-control{
+	position:absolute;
+	top:0px;
+	right:0px;
+	width:72px;
+	height:24px;
+	z-index:999;
+}
+
+#window-control ul li{
+	width:24px;
+	height:24px;
+	overflow:hidden;
+	display:block;
+	float:left;
+	background:transparent;
+	overflow:hidden;
+}
+#window-control ul li div{
+	height:100%;
+	background:url(../img/top-bar.png) no-repeat 0px 0px;
+}
+/*Normal Window*/
+#window-min{
+	background-position:0px -24px !important;
+}
+#window-normal{
+	background-position:-24px -24px !important;
+	display:none;
+}
+#window-max{
+	background-position:-48px -24px !important;
+}
+#window-close{
+	background-position:-72px -24px !important;
+}
+/*Maximum  Window*/
+.max #window-min{
+	background-position:0px -48px !important;
+}
+.max #window-normal{
+	background-position:-24px -48px !important;
+}
+.max #window-max{
+	background-position:-48px -48px !important;
+}
+.max #window-close{
+	background-position:-72px -48px !important;
+}
