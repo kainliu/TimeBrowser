@@ -1,6 +1,7 @@
 /*baidu suggestion*/
 .bdSug_mo{
- 	background:url(../img/tabs-bar.png) repeat-x left -6px !important;
+/* 	background:url(../img/tabs-bar.png) repeat-x left -6px !important;*/
+	background: #575757;
 }
 
 .bdSug_wpr{
