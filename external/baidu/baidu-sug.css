@@ -1,0 +1,12 @@
+/*baidu suggestion*/
+.bdSug_mo{
+ 	background:url(../img/tabs-bar.png) repeat-x left -6px !important;
+}
+
+.bdSug_wpr{
+	width:308px !important;
+}
+
+.bdSug_wpr td{
+	padding:6px !important;
+}
