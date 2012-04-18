@@ -1,121 +1,84 @@
 $(function(){
 
-//*********************************页面初始化	
+	//窗体处理
+	$( "#window" )
+	.css({
+		"margin":0
+	})
+	//可整体拖动
+	.draggable({ 
+		handle: "#title-bar",
+		cancel:"#text-menu",
+		containment: "parent"
+	})
+	//可调整大小
+	.resizable({ 
+		maxHeight:$("#wrapper").height(),
+		maxWidth:$("#wrapper").width(),
+		minHeight:500,
+		minWidth:614 + 80,
+		alsoResize:"#content",
+		resize:function(){	
+			nav_buttons_resize();	
+			nav_apps_resize();
+			tabs_resize();
+		}
+	})
 
 
-//窗体默认居中
-window_normal();
+	//双击标题栏最大化
+	$("#title-bar")
+	.dblclick(function(){
+		 TB.window_control.window_max() 
+	});
 
-//窗口调整大小后自动适应
-/*		
-$(window).resize(function() {
-	window_max();
-});
-*/
-
-
-//标签默认序号从1开始
-$("#tabs-bar").data("num","1")
-
-//去除noscript提示
-$("#content-info").remove()
-
-//显示iframe
-$("#content iframe").show()
-
-//禁止选中
-$("div").disableSelection()
-
-//窗体处理
-$( "#window" )
-.css({
-	"margin":0
-})
-.draggable({ //可整体拖动
-	handle: "#title-bar",
-	cancel:"#text-menu",
-	containment: "parent"
-})
-.resizable({ //可调整大小
-	maxHeight:$("#wrapper").height(),
-	maxWidth:$("#wrapper").width(),
-	minHeight:500,
-	minWidth:614 + 80,
-	alsoResize:"#content",
-	resize:function(){	
-		nav_buttons_resize();	
-		nav_apps_resize();
-		tabs_resize();
-	}
-})
+	//在普通窗口的最小size中,移动到相应导航上显示全部.
+	// $(".nav-child").hover(function(){
+		// $(this).css({"z-index":"3"})
+	// },function(){
+		// $(this).css({"z-index":"1"})	
+	// })
 
 
-//双击标题栏最大化
-$("#title-bar")
-.dblclick(function(){
-	 window_max() 
-});
+	//点击网页区域消除IFRMAE上的罩层
+	//拖放调整大小时往往未捕捉到鼠标左脚施放的动作以及按钮无法释放等效果
+	$("html")		
+	.mouseup(function(){	
+		$("#content-mask").hide();  
+	});
 
-//在普通窗口的最小size中,移动到相应导航上显示全部.
-$(".nav-child").hover(function(){
-	$(this).css({"z-index":"3"})
-},function(){
-	$(this).css({"z-index":"1"})	
-})
-
-//点击网页区域消除IFRMAE上的罩层
-//拖放调整大小时往往未捕捉到鼠标左脚施放的动作
-//以及按钮无法释放等效果//update:暂时不要,影响有下拉内容的按钮按下效果
-$("html")		
-.mouseup(function(){	
-	$("#content-mask").hide();  
-	//$("#top-bar li").removeClass("mouseover").removeClass("mousedown")
-});
+	//Bind drag evnet to resizable handler
+	//拖拽拖动
+	$( ".ui-resizable-handle" )
+	.mousedown(function(){	
+		// show mask above iframe but make it invisible 
+		// to prevent the cursor capturing events inside the iframe when dragging
+		// 打开遮罩层，但是不可见，目的是让鼠标在拖动时不会受到iframe内的网页的影响
+		$("#content-mask").css("opacity",0).show();
+	})
 
 
-//改变状态栏
-/*
-$("#content .current-iframe")	
-.hover(
-	function(){ 
-		$("#status-bar").html("http://www.targetsite.com/targetpage").show();
-	},
-	function(){ 
-		$("#status-bar").hide();
-	}
-);
-*/
-
-//拖拽拖动
-$( ".ui-resizable-handle" )
-.mousedown(function(){	
-	$("#content-mask").css("opacity",0).show();
-})
-.mouseup(function(){	
-	$("#content-mask").hide(); 
-});
-					
-					
-//窗口大小控制按钮
-$("#window-min")
-.click(function(){window_min();});			
-
-$("#window-normal")
-.click(function(){window_normal();});
-
-$("#window-max")
-.click(function(){window_max();});
-
-$("#window-close")
-.click(function(){window_close();});			
+	//Bind event for window control buttons
+	//窗口大小控制按钮
+	$("#window-min")
+	.click(function(){ TB.window_control.window_min();    });			
+	
+	$("#window-normal")
+	.click(function(){ TB.window_control.window_normal(); });
+	
+	$("#window-max")
+	.click(function(){ TB.window_control.window_max();	  });
+	
+	$("#window-close")
+	.click(function(){ TB.window_control.window_close();  });			
 
 
 //导航控制
 $("#backward-button")
-.click(function(){	history.go(-1);	})
+.click(function(){ history.go(-1); })
 
 $("#forward-button")
-.click(function(){ history.go(1); });	
+.click(function(){ history.go(1);  });	
 		
 $("#refresh-button")
 .click(function(){
@@ -163,22 +126,23 @@ $( "#uni-input")
 })
 
 
-//输入框绑定回车
+// Uni input
 $("#uni-text")
-.bind('keydown',function(e){//绑定回车事件
-	var key = e.which;
-	if(key == 13){	//alert("enter!");
+.bind('keydown',function(e){// bind with enter keydown event
+	if(e.which == 13){	
+		//alert("enter fired!");
 		uni_text();
-	}else{//输入字符则清除旧的二次建议
+	}else{
+		// TODO: figure out this: 输入字符则清除旧的二次建议
 		$("#uni-text-sug").html("").hide();
 	}
 })
-.focus(function(){//获得焦点,则显示输入框,展现提交按钮
+.focus(function(){// when focused, show input and submit button
 	$(this).show();
 	$("#nav-uni").removeClass("uni-more-normal").addClass("uni-sub-normal");
 })
 .focusout(function(){
-	if(!$(this).val()){//空,则隐藏输入框,展现下拉按钮
+	if (!$(this).val()) { // when focusout, if nothing inputed
 		$(this).hide();
 		$("#nav-uni").removeClass("uni-sub-normal").addClass("uni-more-normal");
 	}	
@@ -225,7 +189,7 @@ $(".bdSug_wpr")
 })
 
 
-//*********************************绑定鼠标悬浮的样式		
+///**************绑定鼠标悬浮的样式		
 
 //窗口大小按钮,导航按钮,应用按钮
 $("#top-bar li > div")
@@ -234,7 +198,7 @@ $("#top-bar li > div")
 .mouseup(function(){ $(this).parent("li").removeClass("mousedown").addClass("mouseover");})
 .mouseleave(function(){ $(this).parent("li").removeClass("mouseover"); });
 		
-//*********************************增加tip提示
+///**************增加tip提示
 
 $(".tipsy-enabled")
 .each(function(){
@@ -316,7 +280,6 @@ function nav_buttons_list_toggle(){
 //定义所有button按钮类,只能展开一个list
 
 $(".button").mousedown(function(){
-
 	$(".listopen .button").not($(this)).click()
 })
 
@@ -328,12 +291,10 @@ $(".list .list-inner li").live({
 	mouseleave:function(){
 		$(this).removeClass("onhover onclick")
 	},
-
 	mousedown:function(){
 		$(this).addClass("onclick")
 		nav_buttons_list_toggle($(this).parents(".list").attr("id"))
 	},
-	
 	mouseup:function(){
 		$(this).removeClass("onclick")	
 	}
@@ -341,7 +302,7 @@ $(".list .list-inner li").live({
 
 
 
-//*********************************标签点击逻辑
+///**************标签点击逻辑
 
 
 /*tabs可拖拽排序*/
@@ -353,89 +314,15 @@ $("#tabs-bar").dblclick(function(){
 
 
 });
-//*********************************程序主体结束
+///**************程序主体结束
 
 
-
-/*********************窗口最小化*********************/
-function window_min(){ 
-	$( "#window" ).animate({opacity: 0},500);
-}
-
-/*********************窗口关闭*********************/
-function window_close(){ 
-	$( "#window" ).animate({opacity: 0},500);
-}
-
-
-
-/*********************窗口最大化*********************/
-function window_max(){
-	/**********resize**********/
-	$( "#window" ).css({
-		"width":$("#wrapper").width()/*-30*/,
-		"height":$("#wrapper").height()/*-30*/,
-		"left":0/*15*/,
-		"top":0/*15*/
-	})	
-	$( "#wrapper" )	.addClass("max");
-	;
-	$( "#content" ).css({"width":$("#window").width()/*-30*/,"height":$("#window").height()-90});
-	$( "#nav-bar" ).css({"margin-top":"4px"});
-
-	/**********hide**********/
-	$( "#title-bar" ).hide();
-	$( ".ui-resizable-handle" ).hide();
-	$( "#window-max").hide();		
-	/**********show**********/		
-	$( "#window-normal").show();
-
-	nav_buttons_resize();
-	
-	nav_apps_resize();
-
-	tabs_resize();
-	
-}
-
-
-/*********************窗口默认*********************/
-function window_normal(){
-	/**********resize**********/	
-	$( "#window" ).css({
-		"width":950,
-		"height":600,
-		"left":$("#wrapper").width()>950?($("#wrapper").width()-950)*0.5:0,
-		"top":$("#wrapper").height()>600?($("#wrapper").height()-600)*0.5:0
-	})
-	$( "#wrapper" ).removeClass("max");
-	$( "#content" ).css({"width":950,"height":490});
-	$( "#nav-bar" ).css({"margin-top":"0"});
-
-	/**********show**********/			
-	$( "#title-bar" ).show();		
-	$( ".ui-resizable-handle" ).show();
-	$( "#window-max").show();		
-	/**********hide**********/		
-	$( "#window-normal").hide();		
-	
-
-	nav_buttons_resize();
-	
-	nav_apps_resize();
-	
-	tabs_resize();
-
-}
-
-
-
-/*******************导航按钮间距调整*********************/
+//导航按钮间距调整
 function nav_buttons_resize(){
 	nav_children_resize("nav-buttons");
 }
 
-/*******************应用图标间距调整*********************/
+//应用图标间距调整
 function nav_apps_resize(){
 	//var apps_num = arguments[0] || 4;	
 	//if( $("#title-bar")[0].style.display == "none" ){//标题栏消失,切换到全屏,需整体往左移动72像素 = window-control的宽度
@@ -661,7 +548,7 @@ function tab_hover(){
 }
 
 
-/*******************标签大小调整*********************/
+//标签大小调整
 function tabs_resize(){
 	
 	var animate_true = arguments[0] || 0;
@@ -712,7 +599,7 @@ function tabs_resize(){
 
 
 
-/*******************处理头尾圆角样式*********************/
+//处理头尾圆角样式
 function tabs_round(){
 
 	$("#tabs-bar .tab-header").hide();
@@ -745,73 +632,82 @@ function tabs_round(){
 
 
 
-/*******************提交关键字或网址*********************/
+//提交关键字或网址
 function uni_text(){
 	
-	var url = $("#uni-text").val();	
+	var source = $("#uni-text").val();	
 	
-	url = trim(url);//去头尾空格
-	
-	//alert(url);	
-	//alert(trimM(trim(url)));
-	//alert(isHTTP(url) );
+	// url = TB.util.trim(url);//去头尾空格ert(url);	
+	//alert(TB.util.trimM(TB.util.trim(url)));
+	//alert(completeHTTP(url) );
 	
 	/*
-	**针对有可能输入复杂URL,对主机Host进一步判断
-	**如果是该不含中文且符合规则,则直接打开
-	**否则转到搜索结果.
-	*/
-	var p = new Poly9.URLParser(url);
+	 *针对有可能输入复杂URL,对主机Host进一步判断
+	 *如果是该不含中文且符合规则,则直接打开
+	 *否则转到搜索结果.
+	 */
+	// var p = new Poly9.URLParser(url);
 	
-	var host = p.getHost();
+	// var p = new TB.validation.urlParser(url);
+	// var host = p.getHost();
+	url = $.url(source);
+	var host = url.attr('host');
 	
-	/*判断是否包含中文或者是否符合url格式*/
-	if( !isURL(host) || isCHN(host) ){//提交搜索
+	// If it is an url
+	// 判断用户是否输入了一个url地址
+	if( TB.validation.isURL(host) && !TB.validation.isCHN(host) ){
 		
-		//$(".current-content").attr("src","http://www.baidu.com/s?ie=UTF-8&wd="+encodeURIComponent(url) );
-		//$(".current-content").attr("src","server/search.php?word="+encodeURIComponent(spaceToAdd(url)) );//替代空格为加号,进行搜索 //update:encode即可,无须
+		// Add new tab
+		// 新建一个页面
+		tab_new( source, TB.validation.completeHTTP(source) )
 		
-		if($("#uni-text-sug").html()){//如果当前的二次建议不为空,说明未更改搜索的内容,则不进行新搜索以节约时间
-			//alert("1")
+		// Loading animation
+		// 读取动画
+		$("#content-mask").css({"opacity":1}).show().delay(2000).fadeOut(500);
+	}
+	// Otherwise it is a search query
+	// 否则，认为是个搜索词
+	else {
+		
+		// If the search query doesn't change 
+		// 如果搜索词没变
+		// TODO: 这里的判断机制有问题
+		if($("#uni-text-sug").html()) {
+			// Show previous search suggestion
+			// 展示之前的搜索建议
 			$("#uni-text-sug").show().css({"height":"auto"})
-			return true;
+			return;
 		}
 		
+		// Show search suggestion
+		// 展示搜索建议
 		$("#uni-text-sug")
-		//.html("")//清空之前的搜索结果
 		.css({
 			"top":$("#uni-text").offset().top+29,
 			"left":$("#uni-text").offset().left,
 			"height":290
 		})
-		.addClass("loading")/*出现动画,展示正在读取*/
+		.addClass("loading")
 		.show()
 		
-		
-		$.get("server/search.php",{word:encodeURIComponent(url)},function(data){
-			//alert(data);
+		// Using ajax to get search result
+		$.get(
+			"server/search.php",
+			{
+				word: encodeURIComponent(source)
+			},	
+			function(data){
+			
 			$("#uni-text-sug")
-			// .html(function(){
-			// 	return data + $("#uni-text-sug-control").html()
-			// })
-					
 			.html(data)
 			.append($("#uni-text-sug-bar"))
-			
 			.css({//根据得到结果调整高度
 				"height":"auto"	
 			})
-			.removeClass("loading")//结束读取动画
+			.removeClass("loading")
 			
 			$("#uni-text-sug .reswrap").append($("#uni-text-sug #uni-text-sug-search").show())
 			
-			/*
-			$("#uni-text-sug .reswrap")
-			.css({
-				"height":450
-			})
-			*/
-		
 
 	
 			var resitem_min_height = 35;//75;//
@@ -821,7 +717,6 @@ function uni_text(){
 			$("#uni-text-sug .reswrap .resitem")
 			.each(
 				function(index){
-					
 					$(this).data("h",$(this).height())//储存默认高度
 					.css({"height":resitem_min_height,"background-color":$(this).index()%2?"#F0F0F0":"#FFFFFF"})//隔行变色
 					.find(".abs").hide().end()//隐藏
@@ -883,7 +778,7 @@ function uni_text(){
 			//$("#uni-text-sug .reswrap .resitem").hide();
 			//$("#uni-text-sug .reswrap .resitem:not(.adv)").filter(":lt(4)").show()//只显示前5个
 			
-			//****************************上下滚动//todo:左右滚动
+			///*********上下滚动//todo:左右滚动
 			
 			//上一页
 			$("#uni-text-sug .prev").click(function(){ 	
@@ -915,7 +810,7 @@ function uni_text(){
 				
 			// })			
 			/**/
-			//****************************上下滚动结束
+			///*********上下滚动结束
 			
 			//关闭
 			$("#uni-text-sug .close").click(function(){ 	
@@ -969,10 +864,6 @@ function uni_text(){
 			$(".bdSug_sd").hide();	$(".bdSug_wpr").hide();	
 
 		})
-	}else{
-		//$(".current-content").attr("src",isHTTP(url) );//省略协议名则默认为HTTP
-		tab_new( url, isHTTP(url) )
-		$("#content-mask").css({"opacity":1}).show().delay(2000).fadeOut(500);/*出现动画,展示正在读取*/
 	}
 	
 	$("#uni-text").blur()/*离开输入框的焦点*/
@@ -981,11 +872,6 @@ function uni_text(){
 
 }
 
-
-//获取0-100的随机数——getRandom(100);
-function getRandom(n){
-	return Math.floor(Math.random()*n+1)
-}
 
 
 

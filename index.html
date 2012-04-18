@@ -279,16 +279,18 @@ $LAB
 .script("plugin/jquery-ui/jquery-ui-1.8.9.custom.min.js")
 .script("plugin/easing/jquery.easing.1.3.js")
 .script("plugin/tipsy/jquery.tipsy.js")
+.script("plugin/url/jquery.url.js")
 .script("plugin/hoverDelay/jquery.hoverDelay.js")
 .wait()
-.script("module/index.js")//XXX:remove this line when modularity job done
-.script("module/validation.js")
 .script("module/init.js") 
-.script("module/title-bar.js")
-.script("module/window-control.js")
-.script("module/nav-buttons.js")
-.script("module/nav-uni.js")  
-.script("module/nav-apps.js")   
+.script("module/util.js")
+.script("module/validation.js")
+.script("module/title_bar.js")
+.script("module/window_control.js")
+.script("module/nav_buttons.js")
+.script("module/nav_uni.js")  
+.script("module/nav_apps.js")   
+.script("module/index.js")//XXX:remove this line when modularity job done
 .wait()
 .script("external/baidu/baidu-sug.js")//Baidu search suggestion
 </script>

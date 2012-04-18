@@ -1,3 +1,8 @@
+TB.nav_apps = {
+	
+	
+};
+
 // nav_apps_initial()
 
 // function nav_apps_initial(){
@@ -13,9 +18,10 @@
 
 
 function nav_apps_toggle(){
-	if(!$("#apps-button").parent("li").hasClass("listopen")){	//open
 	
-
+	//app list is open
+	if( !$("#apps-button").parent("li").hasClass("listopen") ){	
+	
 		$("#nav-apps-list-control")
 		.css({
 			"width":$("#nav-apps-list").width(),
@@ -27,7 +33,6 @@ function nav_apps_toggle(){
 		.prepend($("#nav-apps-list"))
 		//.fadeIn(250)
 		.css({"margin-top":"30px"})			//下拉动画效果
-
 		.animate({"margin-top":"40px"},250)		
 		.animate({"margin-top":0},200)
 
@@ -49,35 +54,29 @@ function nav_apps_toggle(){
 				
 		
 	}
-
-	else {//close
-		
+	//app list is closed
+	else {
 		
 		$("#nav-apps-list-control")
-		
 		.css({"margin-top":"0px"})		//上缩动画效果
 		.animate({"margin-top":"40px"},200)
 		.animate({"margin-top":"20px"},150)		
-		
 		.fadeOut(300,function(){
 			$("#nav-apps-list").appendTo($("#nav-apps"))
 			.css({"margin-top":"40px"})
 			.animate({"margin-top":0},150)
 		})
 		//.hide()
+		
 		$("#nav-apps-list .tipsy-enabled").each(function(){
 			$(this).attr("original-title",$(this).find("span").html())
 		})
-	
 	
 		$("#window-control >ul").show()
 		$(".ui-resizable-handle").show()
 		$("#apps-title").hide()
 		$("#apps-button").parent("li").removeClass("mousedown listopen")
-		
-	
-	
-		
+
 	}
 }
 
@@ -127,9 +126,9 @@ function nav_apps_list(){
 
 			function shake(){
 				$(self).css({"position":"relative","top":0,"left":0})
-				var delay_time = 1000;//getRandom(100);
-				var move_h = getRandom(10)*0.2;
-				var move_v = getRandom(10)*0.2;
+				var delay_time = 1000;//TB.util.getRandom(100);
+				var move_h = TB.util.getRandom(10)*0.2;
+				var move_v = TB.util.getRandom(10)*0.2;
 
 				$(self)//.delay( delay_time )
 				.animate({"left":move_h,"top":move_v},60)						
@@ -154,7 +153,9 @@ function nav_apps_list(){
 	}
 })(jQuery);
 
-
+//Jquery-ready start
+$(function(){
+	
 //渲染列表
 nav_apps_list();
 
@@ -185,34 +186,37 @@ $("#nav-apps-list")
 	opacity: 0.6, 	//设置拖动时候的透明度
    	revert: true,		//缓冲效果 		
    	start:function(event){
-			if(event.which == 1){
-				$("#nav-apps-list").data("iconShiver","1")
+		if(event.which == 1){
+			$("#nav-apps-list").data("iconShiver","1")
 
-				$( "#nav-apps-list li:visible" ).unbind("click")
-				.find("div").css({"cursor":"move"})
-				.find("img").iconShiver()	
-			
-			}
-		},
-
-		sort:function(){
-			//不显示tip
-			$(".tipsy").hide()
-		},
+			$( "#nav-apps-list li:visible" ).unbind("click")
+			.find("div").css({"cursor":"move"})
+			.find("img").iconShiver()	
 		
-		stop:function(event){
-			if(event.which == 1){
-				$("#nav-apps-list").animate({"":""},1,function(){
-
-					$("#nav-apps-list").data("iconShiver","0")
-									
-					// nav_apps_initial()
-					
-					$( "#nav-apps-list li:visible" )
-					.find("div").css({"cursor":"pointer"})
-
-	
-				})
-			}
 		}
+	},
+
+	sort:function(){
+		//不显示tip
+		$(".tipsy").hide()
+	},
+	
+	stop:function(event){
+		if(event.which == 1){
+			$("#nav-apps-list").animate({"":""},1,function(){
+
+				$("#nav-apps-list").data("iconShiver","0")
+								
+				// nav_apps_initial()
+				
+				$( "#nav-apps-list li:visible" )
+				.find("div").css({"cursor":"pointer"})
+
+
+			})
+		}
+	}
 })
+
+//Jquery-ready end
+});
