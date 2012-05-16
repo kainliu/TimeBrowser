@@ -2,9 +2,9 @@
 
 ####Introduction 简介
 
-TimeBrowser is a browsed-based multi-tab browser with delicately designed user interface and attracting features, aiming at providing a "cloud-surfing" demo.
+TimeBrowser is a browser based multi-tab browser with delicately designed user interface and attracting features.
 
-时光浏览器一个基于浏览器的多标签页浏览器，界面精美，功能新颖，力图模拟一个“云浏览”环境。
+时光浏览器一个基于浏览器，界面精美，功能新颖的多标签页浏览器。
 
 
 
