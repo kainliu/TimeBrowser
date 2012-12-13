@@ -6,7 +6,11 @@ TimeBrowser is a browser based multi-tab browser with delicately designed user i
 
 时光浏览器一个基于浏览器，界面精美，功能新颖的多标签页浏览器。
 
+####Licence 协议
 
+This project is open source and under GNU GPL license.
+
+这个项目遵守GNU GPL的开源软件协议。
 
 ####Preview 预览
 
