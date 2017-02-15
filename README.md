@@ -1,23 +1,20 @@
 ##TimeBrowser 时光浏览器
 
+In 2010, I designed this Browser UI and implemented it with JQuery. 
+
+When looking back, I found that Apple's new UI of Safari agrees with my thoughts.
+
 ####Introduction 简介
 
 TimeBrowser is a browser based multi-tab browser with delicately designed user interface and attracting features.
 
 时光浏览器一个基于浏览器，界面精美，功能新颖的多标签页浏览器。
 
-####Licence 协议
-
-This project is open source and under GNU GPL license.
-
-这个项目遵守GNU GPL的开源软件协议。
-
 ####Preview 预览
 
-View [DEMO](http://www.hasown.com/TimeBrowser/). Since it may not be stable, please View the [Screenshot](http://github.com/kaihualiu/TimeBrowser/raw/master/design/preview.png) and [Prototype design](http://github.com/kaihualiu/TimeBrowser/raw/master/design/prototype.png) to take a glance.
+![DEM0](https://raw.githubusercontent.com/kainliu/TimeBrowser/master/design/preview.png)
 
-Demo请点击[这里](http://www.hasown.com/TimeBrowser/)。如果无法打开，可以看看[截图](http://github.com/kaihualiu/TimeBrowser/raw/master/design/preview.png)和[设计草图](http://github.com/kaihualiu/TimeBrowser/raw/master/design/prototype.png)。
-
+![PROTOTYPE](https://raw.githubusercontent.com/kainliu/TimeBrowser/master/design/prototype.png)。
 
 ####Installation 安装
 
@@ -46,3 +43,10 @@ Then try to open [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/) 
 The efforts spent on the compatibility of various browsers including IE6 drivers me crazy, but I try my best to keep TB performs good. I have not tested it for Safari and Opera thoroughly. Any questions or bug reports are welcomed.
 
 为了在IE6下保持和标准浏览器差不多的效果，兼容性工作把我累跪下了。我还没来得及完整测试过Safari和Opera。如果有任何问题，欢迎告诉我。
+
+
+####Licence 协议
+
+This project is open source and under GNU GPL license.
+
+这个项目遵守GNU GPL的开源软件协议。
