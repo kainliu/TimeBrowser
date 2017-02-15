@@ -4,19 +4,21 @@ In 2010, I designed this Browser UI and implemented it with JQuery.
 
 When looking back, I found that Apple's new UI of Safari agrees with my thoughts.
 
-####Introduction 简介
+-------
+
+###Introduction 简介
 
 TimeBrowser is a browser based multi-tab browser with delicately designed user interface and attracting features.
 
 时光浏览器一个基于浏览器，界面精美，功能新颖的多标签页浏览器。
 
-####Preview 预览
+###Preview 预览
 
 ![DEM0](https://raw.githubusercontent.com/kainliu/TimeBrowser/master/design/preview.png)
 
 ![PROTOTYPE](https://raw.githubusercontent.com/kainliu/TimeBrowser/master/design/prototype.png)。
 
-####Installation 安装
+###Installation 安装
 
 * Apache, Nginx or other http server
 * PHP >= 5.2 
@@ -34,7 +36,7 @@ Then try to open [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/) 
 然后请在浏览器中打开 [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/)，推荐使用Google Chrome。如果一切顺利的话，您就能看到截图的画面的。
 
 
-####Support browsers 支持浏览器
+###Support browsers 支持浏览器
 
 * IE >= 6 
 * Firefox >= 3 
@@ -45,7 +47,7 @@ The efforts spent on the compatibility of various browsers including IE6 drivers
 为了在IE6下保持和标准浏览器差不多的效果，兼容性工作把我累跪下了。我还没来得及完整测试过Safari和Opera。如果有任何问题，欢迎告诉我。
 
 
-####Licence 协议
+###Licence 协议
 
 This project is open source and under GNU GPL license.
 
