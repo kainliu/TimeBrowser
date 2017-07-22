@@ -1,54 +1,33 @@
-##TimeBrowser 时光浏览器
+## TimeBrowser 时光浏览器
 
 In 2010, I designed this Browser UI and implemented it with JQuery. 
 
-When looking back, I found that Apple's new UI of Safari agrees with my thoughts.
-
--------
-
-###Introduction 简介
-
-TimeBrowser is a browser based multi-tab browser with delicately designed user interface and attracting features.
-
-时光浏览器一个基于浏览器，界面精美，功能新颖的多标签页浏览器。
-
-###Preview 预览
+When looking back, I find that **Apple's UI design principle after 2014, to centralize key elements and symmetrize layout, agrees with my thoughts**.
 
 ![DEM0](https://raw.githubusercontent.com/kainliu/TimeBrowser/master/design/preview.png)
 
+### Introduction
+
+TimeBrowser is a browser based multi-tab browser with delicately designed user interface and attracting features.
+
 ![PROTOTYPE](https://raw.githubusercontent.com/kainliu/TimeBrowser/master/design/prototype.png)。
 
-###Installation 安装
+### Installation
 
 * Apache, Nginx or other http server
 * PHP >= 5.2 
 
-Please make sure you also have PHP running. Since TimeBrowser(TB) is closely integrated with service provided from server site, it is not a front-end-only project.
+- Please make sure you also have PHP running. TimeBrowser is closely integrated with service provided from server side.
+- An Internet connection is required in order to open websites. 
+- Please download the zip and put the unzipped folder to server root. Then open [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/) in browser. 
 
-请检查您的服务器能够运行PHP。时光浏览器是和后端提供服务紧密相连的，因此，这个项目不是只与前端相关的。
-
-An Internet connection is required to run TimeBrowser. Please download the zip and put the unzipped folder to server root. 
-
-请确保能够连接互联网，下载并解压后，将文件夹放置到服务器的根目录下。
-
-Then try to open [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/) in browser. Google Chrome is highly recommended. If everything goes well, you will see it as the screenshot.
-
-然后请在浏览器中打开 [http://localhost/TimeBrowser/](http://localhost/TimeBrowser/)，推荐使用Google Chrome。如果一切顺利的话，您就能看到截图的画面的。
-
-
-###Support browsers 支持浏览器
+### Support Browsers
 
 * IE >= 6 
 * Firefox >= 3 
-* Chrome
+* Chrome 
 
-The efforts spent on the compatibility of various browsers including IE6 drivers me crazy, but I try my best to keep TB performs good. I have not tested it for Safari and Opera thoroughly. Any questions or bug reports are welcomed.
-
-为了在IE6下保持和标准浏览器差不多的效果，兼容性工作把我累跪下了。我还没来得及完整测试过Safari和Opera。如果有任何问题，欢迎告诉我。
-
-
-###Licence 协议
+### Licence
 
 This project is open source and under GNU GPL license.
 
-这个项目遵守GNU GPL的开源软件协议。
